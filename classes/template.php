@@ -70,9 +70,9 @@ class template
         //vaatame malli elementide massiivi
         foreach ($this->vars as $name=>$val){
             $str = str_replace('{'.$name.'}',$val, $str);
-            //tagastame täidetud malli sisu
-            return $str;
         }
+        //tagastame täidetud malli sisu
+        return $str;
     }//parse
 
 }//Klassi lõpp
