@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8b8808e4-14ca-4edc-9983-e1664445af30" name="Web prog" url="http://138.68.68.130/~markus.reimann/">
+        <fileTransfer host="138.68.68.130" port="22" rootFolder="/home/markus.reimann/public" accessType="SFTP" password="dfd9dfcfdfc6dfdfdfd8dfd3dfcbdfcedfc4dfcfdfcfdfd8dfcddf98df9a" username="markus.reimann">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
