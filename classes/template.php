@@ -11,7 +11,7 @@ class template
     // template klassi omadused-muutujad
     var $file = ''; //html mall faili nimi
     var $content = false; //html mall faili sisu
-    var $vars = ''; //html vaate sisu- reaalsed väärtused
+    var $vars = array(); //html vaate sisu- reaalsed väärtused
     //Klassi tegevused- meetodid- funktsioonid
 
     //Klassi konstruktor
