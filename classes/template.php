@@ -51,10 +51,17 @@ class template
         if($this->content == false){
             echo 'Ei suutnud lugeda faili'.$this->file.'</ br>';
         }
+
     }//Loadfile lõpp. Html mall faili lugemine lõpp
 
     //Loeme sisu html malli failist
     function readFile($f){
         $this->content = file_get_contents($f);
     }//ReadFile'i lõpp
+
+    //Koostame paarid malli_element=> reaalsed_väärtused
+    function  set($name, $val){
+        $this->vars[$name] = $val;
+    }//set
+
 }//Klassi lõpp
