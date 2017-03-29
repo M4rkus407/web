@@ -74,9 +74,9 @@ class template
     //Lisame lisaväärtused olemasolevatele elementidele
     function add($name, $val){
         //Kui antud nimega elemnti ei eksisteeri
-        if(!isset($this->$vars[$name])){
+        if(!isset($this->vars[$name])){
             $this->set($name, $val);
-        } else{
+        } else {
             $this->vars[$name] = $this->vars[$name].$val;
         }
     }
