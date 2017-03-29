@@ -14,8 +14,5 @@ $menu->set('items', $item->parse());
 $item->set('name', 'teine');
 $menu->add('items', $item->parse());
 //Kontrollime  objekti olemasolu ja sisu
-echo '<pre>';
-print_r($menu);
-print_r($item);
-echo '<pre>';
+$main_tmpl->add('menu', $menu->parse()); //Kui soovime pidevat asendamist, siis on vaja kasutada SET, ADD'i asemel
 ?>
