@@ -46,5 +46,10 @@ class http
         return false;
     }//GET
 
+    //Lisame vajalikud väärtused veebi kujul nimi=väärtus
+    function set($name, $val){
+        $this->vars[$name] = $val;
+    }//SET
+
 } //Klassi lõpp
 ?>
