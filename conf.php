@@ -9,6 +9,7 @@
 define('CLASSES_DIR', 'classes/'); //classes kataloogi konstant
 define('TMPL_DIR', 'tmpl/'); // tmpl kataloogi konstant
 define('LIB_DIR', 'lib/');
+define('ACTS_DIR', 'acts/'); //acts kataloogi nime konstant,
 
 //Võtame kasutusse vajlikud abi failid
 require_once LIB_DIR.'utils.php';
@@ -20,11 +21,5 @@ require_once CLASSES_DIR.'linkobject.php';
 
 //Loome vajalikud objektid
 $http = new linkobject();
-//Testime link objekti tööd
 
-echo $http->baseUrl.'<br />';
-echo $http->getLink(array('kasutaja'=>'admin', 'pass'=>'qwerty'));
-//echo '<pre>';
-//print_r($http)
-//echo '</pre>';
 ?>
