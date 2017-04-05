@@ -13,6 +13,9 @@ if (file_exists($fn) and is_file($fn) and is_readable($fn)) {
     //Loeme sisu
     require_once $fn;
     } else {
-        echo 'sobivat faili pole';
+        $fn = ACTS_DIR.DEFAULT_ACT.'.php';
+        $http->set('act', DEFAULT_ACT); //paneme act väärtuseks default- act=default
+        require_once  $fn;
 }
+?>
 
