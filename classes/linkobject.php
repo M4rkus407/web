@@ -14,7 +14,7 @@ class linkobject extends http
     var $eq = '=';
     var $protocol = 'http://';
     
-    var $aie = array('lang_id', 'sid'=>'sid');
+    var $aie = array('lang_id');
 
     //Klassi meetodid
     //Klassi konstruktor algus
