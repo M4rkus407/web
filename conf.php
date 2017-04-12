@@ -12,6 +12,7 @@ define('LIB_DIR', 'lib/'); //Lib kataloogi nime konstant
 define('ACTS_DIR', 'acts/'); //acts kataloogi nime konstant
 define('DEFAULT_ACT', 'default'); //vaikimisi tegevuse  faili nime konstant
 define('DEFAULT_LANG', 'et'); //vaikimisi keele konstant
+define('LANG_DIR', 'lang/');
 
 //Võtame kasutusse vajlikud abi failid
 require_once LIB_DIR.'utils.php';
