@@ -45,7 +45,7 @@ class mysql
     }//Päringu teostamise lõpp
 
     //Andmetega päringu teostamine
-    function qetArray($sql){
+    function getArray($sql){
         $res = $this->query($sql);
         $data = array();
         while ($row = mysqli_fetch_assoc($res)){
