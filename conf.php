@@ -47,5 +47,5 @@ define('LANG_ID', $lang_id);
 $lang_id = DEFAULT_LANG;
 $http->set('lang_id', $lang_id);
 
-
+require_once LIB_DIR.'trans.php';
 ?>

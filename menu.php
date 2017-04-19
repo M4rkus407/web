@@ -17,7 +17,7 @@ $res = $db->getArray($sql);
 if($res != false) {
     foreach ($res as $page) {
         //nimetame menüüs väljastatava elemendi
-        $item->set('name', $page['title']);
+        $item->set('name', tr($page['title']));
         //loome antud menüü elemendi lingi
         $link = $http->getLink(array('page_id' => $page['content_id']));
         //Lisame antud lingi menüüsse
