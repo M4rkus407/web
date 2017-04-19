@@ -15,6 +15,8 @@ class session
     var $db = false; //objekt andmebaasi kasutamiseks
     //Kui anonüümne lubatud ei ole - var $anonymous = false;
     var $anonymous = true; //anonüümne kasutaja on lubatud
+    // sessiooni pikkus
+    var $timeout = 1800; // 30 minutit
 
     //Klassi muutujad lõpp
     //Konstruktor algus
@@ -22,9 +24,8 @@ class session
         $this->http = &$http;
         $this->db = &$db;
         //Võtame sessiooni id andmed
-        $this->clearSessions();
-        $this->createSession();
         $this->sid = $http->get('sid');
+        $this->checkSession();
     }//Konstruktor lõpp
 
     //Sessiooni loomine algus
@@ -57,11 +58,58 @@ class session
 
     }//Sessiooni loomine lõpp
 
-    //Sessiooni tabeli puhastamine
+    //Sessiooni tabeli puhastamine algus
     function clearSessions(){
-        $sql = 'DELETE FROM session WHERE'.
+        $sql = 'DELETE FROM session WHERE '.
             time().' - UNIX_TIMESTAMP(changed) > '.
             $this->timeout;
         $this->db->query($sql);
-    }
+    }//Sessiooni tabeli puhastamine lõpp
+
+    //Sessiooni kontroll algus
+    function checkSession(){
+        $this->clearSessions();
+        //Kui sid on puudu ja anonüümne on lubatud
+        //tekitame alustamiseks anonüümse sessiooni
+        if($this->sid === false and $this->anonymous){
+            $this->createSession();
+        }
+        //juhul kui sid on olemas
+        if($this->sid !== false){
+            //Võtame andmed sessiooni tabelist, mis on antud id'ga seotud
+            $sql = 'SELECT * FROM session WHERE '.
+                'sid='.fixDb($this->sid);
+            //saadame päringu andmebaasi ja võtame andmed
+            $res = $this->db->getArray($sql);
+            //Kui andmebaasist andmeid ei tule
+            if($res == false){
+                //Kui anonüümne on lubatud
+                //Siis loome uue sessiooni
+                if($this->anonymous){
+                    $this->createSession();
+                } else {
+                    //Kui anonüümne sessioon ei ole lubatud, siis tuleb kustutada kõik antud sessiooniga
+                    //seotud andmed veebist
+                    $this->sid = false;
+                    $this->http->del('sid');
+                }
+            } else {
+                //Kui andmebaasist on võimalik sessiooni kohta andmeid saada
+                //Kõigepealt sessiooni andmed
+                $vars = unserialize($res[0]['svars']);
+                if(!is_array($vars)){
+                    $vars = array();
+                }
+                $this->vars = $vars;
+                //nüüd kasutaja andmed
+                $user_data = unserialize($res[0]['user_data']);
+                $this->user_data = $user_data;
+            }
+        } else {
+            //Kui $this->id = false
+            //hetkel sessiooni pole
+            echo 'Sessiooni hetkel ei ole';
+        }
+
+    }//Sessiooni kontroll lõpp
 }//Klassi lõpp
