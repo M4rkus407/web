@@ -22,6 +22,7 @@ class session
         $this->http = &$http;
         $this->db = &$db;
         //Võtame sessiooni id andmed
+        $this->clearSessions();
         $this->createSession();
         $this->sid = $http->get('sid');
     }//Konstruktor lõpp
@@ -55,4 +56,12 @@ class session
 
 
     }//Sessiooni loomine lõpp
+
+    //Sessiooni tabeli puhastamine
+    function clearSessions(){
+        $sql = 'DELETE FROM session WHERE'.
+            time().' - UNIX_TIMESTAMP(changed) > '.
+            $this->timeout;
+        $this->db->query($sql);
+    }
 }//Klassi lõpp
