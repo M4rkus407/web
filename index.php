@@ -33,6 +33,6 @@ require_once 'act.php';
 $main_tmpl->set('site_title', 'Veebiprogrammeerimise kursus');
 //Kontrollin  antud objekti sisu
 echo $main_tmpl->parse();
-//kutsume menüü tööle testimiseks
-
+//uuendame sessiooni andmed
+$sess->flush();
 ?>

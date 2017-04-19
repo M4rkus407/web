@@ -16,7 +16,7 @@ class session
     //Kui anonüümne lubatud ei ole - var $anonymous = false;
     var $anonymous = true; //anonüümne kasutaja on lubatud
     // sessiooni pikkus
-    var $timeout = 1800; // 30 minutit
+    var $timeout = 60; // 1 minutit
 
     //Klassi muutujad lõpp
     //Konstruktor algus
@@ -110,6 +110,15 @@ class session
             //hetkel sessiooni pole
             echo 'Sessiooni hetkel ei ole';
         }
-
     }//Sessiooni kontroll lõpp
+    
+    //Sessiooni uuendamine
+    function flush(){
+        if($this->sid !== false){
+            $sql = 'UPDATE session SET changed=NOW(), '.
+                'svars='.fixDb(serialize($this->vars)).
+                ' WHERE sid='.fixDb($this->sid);
+            $this->db->query($sql);
+        }
+    }
 }//Klassi lõpp
