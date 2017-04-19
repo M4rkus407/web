@@ -51,5 +51,11 @@ class http
         $this->vars[$name] = $val;
     }//SET
 
+    //Eemaldame ebavajalikud andmed veebist algus
+    function del($name){
+        if(isset($this->vars[$name])){
+            unset($this->vars[$name]);
+        }
+    }//Eemaldame ebavajalikud andmed veebist algus lõpp
 } //Klassi lõpp
 ?>
