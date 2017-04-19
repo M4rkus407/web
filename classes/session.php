@@ -21,6 +21,9 @@ class session
     function __construct(&$http, &$db){
         $this->http = &$http;
         $this->db = &$db;
+        //Võtame sessiooni id andmed
+        $this->createSession();
+        $this->sid = $http->get('sid');
     }//Konstruktor lõpp
 
     //Sessiooni loomine algus
@@ -37,7 +40,7 @@ class session
         //Unikaalse sessiooni id loomine
         $sid = md5(uniqid(time().mt_rand(1, 1000), true));
         //päring sessiooni andmete salvestamiseks andmebaasi
-        $sql ='INSERT INTO session SET'.
+        $sql ='INSERT INTO session SET '.
             'sid='.fixDb($sid).', '.
             'user_id='.fixDb($user['user_id']).', '.
             'user_data='.fixDb(serialize($user)).', '.
