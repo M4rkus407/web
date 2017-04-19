@@ -7,7 +7,7 @@
  */
 $_trans = array(
     'Esimene' => 'First',
-    'Teine' => 'Second';
+    'Teine' => 'Second',
     'Minu lehe pealkiri' => 'My page heading',
     'Logi välja' => 'Logout',
     'Kasutajanimi' => 'Username',
