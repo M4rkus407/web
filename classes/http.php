@@ -57,5 +57,19 @@ class http
             unset($this->vars[$name]);
         }
     }//Eemaldame ebavajalikud andmed veebist algus lõpp
+    
+    //Suunamine algus
+    function redirect($url = false){
+       global $sess;
+        $sess->flush();
+        //Kui $url on false suunatakse pealehele
+        if($url == false){
+            $url = $this->getLink();
+        }
+        $url = str_replace('&amp;', '&', $url);
+        header('Location: '.$url);
+        exit;
+    }//Suunamise lõpp
+    
 } //Klassi lõpp
 ?>
