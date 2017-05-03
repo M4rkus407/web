@@ -13,7 +13,9 @@ $_trans = array(
     'Kasutajanimi' => 'Username',
     'Parool' => 'Password',
     'Logi sisse' => 'Login',
-    'Viga sisselogimisel' => 'Login error'
+    'Viga sisselogimisel' => 'Login error',
+    'Kasutaja' => 'User'
+
 );
 
 ?>
