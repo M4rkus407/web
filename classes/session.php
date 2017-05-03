@@ -141,9 +141,23 @@ class session
         }
         return false;
     }//Sessiooni andmete võtmine lõpp
+
+
+    //DEL algus
     function del($name){
         if(isset($this->vars[$name])){
             unset($this->vars[$name]);
         }
-    }//DEl
+    }//DEL lõpp
+
+    //Sessiooni kustutamine algus
+    function delsession(){
+        if($this->sid != false){
+            $sql = 'DELETE FROM session '.
+                'WHERE sid='.fixDb($this->sid);
+            $this->db->query($sql);
+            $this->sid = false;
+            $this->http->del('sid');
+        }
+    }// Sessiooni kustutamine lõpp
 }//Klassi lõpp
