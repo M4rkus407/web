@@ -14,6 +14,11 @@ define('DEFAULT_ACT', 'default'); //vaikimisi tegevuse  faili nime konstant
 define('DEFAULT_LANG', 'et'); //vaikimisi keele konstant
 define('LANG_DIR', 'lang/');
 
+//Kasutajate rollid
+define('ROLE_NONE', 0);
+define('ROLE_ADMIN', 1);
+define('ROLE_USER', 2);
+
 //Võtame kasutusse vajlikud abi failid
 require_once LIB_DIR.'utils.php';
 require_once 'db_conf.php';
