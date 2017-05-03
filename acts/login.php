@@ -7,6 +7,10 @@
  */
 //Loome sisselogimisvormi objekti
 $login = new template('login');
+
+$error = $sess->get('error');
+$login->set('error', $error);
+
 //paneme reaalsed väärtused template elementidele
 $login->set('kasutajanimi', 'Kasutaja');
 $login->set('parool', 'Parool');

@@ -128,4 +128,22 @@ class session
             $this->db->query($sql);
         }
     }
+    //Sessiooni andmete lisamine algus
+    function set($name, $val){
+        $this->vars[$name] = $val;
+    }//Sessiooni andmete lisamine lõpp
+
+
+    //Sessiooni andmete võtmine algus
+    function get($name, $val){
+        if(isset($this->vars[$name])){
+            return $this->vars[$name];
+        }
+        return false;
+    }//Sessiooni andmete võtmine lõpp
+    function del($name){
+        if(isset($this->vars[$name])){
+            unset($this->vars[$name]);
+        }
+    }//DEl
 }//Klassi lõpp
