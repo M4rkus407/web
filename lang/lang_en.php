@@ -14,7 +14,12 @@ $_trans = array(
     'Parool' => 'Password',
     'Logi sisse' => 'Login',
     'Viga sisselogimisel' => 'Login error',
-    'Kasutaja' => 'User'
+    'Kasutaja' => 'User',
+    'Esimene leht' => 'First page',
+    'Teine leht' => 'Second page',
+    'Pealeht' => 'Main page',
+    'Lehe peamenüü' => 'Main menu',
+    'avaleht' => 'Homepage'
 
 );
 
