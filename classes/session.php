@@ -28,7 +28,7 @@ class session
         $this->checkSession();
     }//Konstruktor lõpp
 
-    //Sessiooni loomine algus
+    //Sessiooni loomine algus.
     function createSession($user = false){
         //Kui kasutaja on anonüüme
         if($user == false){
